@@ -1,0 +1,36 @@
+# build output
+dist/
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+test/
+/public/vh-search.json
+# Tencent Cloud EdgeOne
+.env
+.edgeone
+.edgeone/*
+.tef_dist/*
+
+# WorkBuddy workspace metadata (not part of the blog)
+.workbuddy/
+.vscode/
+
+# 工作区分类文件夹（非博客产物 / 任务记录，不进博客仓库）
+非博客产物/
+任务记录/

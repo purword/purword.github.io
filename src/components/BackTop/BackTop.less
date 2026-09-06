@@ -1,0 +1,94 @@
+section.vh-back-top {
+  position: fixed;
+  right: var(--vh-back-top);
+  bottom: 2rem;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  border: 1px solid #e5e7eb;
+  background-color: var(--vh-white-color);
+  transform: translateX(1rem);
+  cursor: pointer;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transition: transform .188s, opacity .18s;
+  z-index: 9;
+
+  &.active {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &>svg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% + 1px);
+    height: calc(100% + 1px);
+
+    &.icon {
+      width: 66%;
+      height: 66%;
+    }
+  }
+}
+
+// 主题切换（太阳/月亮）按钮：固定在返回顶部按钮上方，常驻显示
+button.vh-theme-toggle {
+  position: fixed;
+  right: var(--vh-back-top);
+  // 返回顶部按钮 bottom 为 2rem、高 2.6rem，再加 0.4rem 间距
+  bottom: calc(2rem + 2.6rem + 0.4rem);
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  border: 1px solid #e5e7eb;
+  background-color: var(--vh-white-color);
+  color: var(--vh-font-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+  box-shadow: var(--vh-box-shadow);
+  transition: transform .188s, background-color .18s, color .18s;
+  z-index: 9;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &>svg {
+    position: absolute;
+    width: 56%;
+    height: 56%;
+  }
+
+  // 默认（浅色主题）显示月亮，点击切到深色
+  .vh-icon-sun {
+    display: none;
+  }
+
+  .vh-icon-moon {
+    display: block;
+  }
+}
+
+html[data-theme="dark"] {
+  button.vh-theme-toggle {
+    border-color: #2f2f36;
+
+    .vh-icon-sun {
+      display: block;
+    }
+
+    .vh-icon-moon {
+      display: none;
+    }
+  }
+}

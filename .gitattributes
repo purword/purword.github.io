@@ -1,0 +1,3 @@
+# 统一仓库内文本文件换行符为 LF，消除 Windows 上 "LF will be replaced by CRLF" 警告
+# 同时避免跨平台（Windows / macOS / Linux）协作时产生无意义的换行 diff 噪音
+* text=auto eol=lf

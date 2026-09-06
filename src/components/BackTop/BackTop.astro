@@ -1,0 +1,43 @@
+---
+import "./BackTop.less";
+---
+
+<!-- 主题切换按钮（太阳/月亮），固定在返回顶部按钮上方 -->
+<button class="vh-theme-toggle" id="vh-theme-toggle" type="button" aria-label="切换深色/浅色模式" title="切换主题">
+	<svg class="vh-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<circle cx="12" cy="12" r="4"></circle>
+		<path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+	</svg>
+	<svg class="vh-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+	</svg>
+</button>
+
+<section class="vh-back-top">
+	<svg viewBox="0 0 24 24">
+		<defs>
+			<linearGradient id="Gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+				<stop offset="0%" style="stop-color:blue;stop-opacity:1"></stop>
+				<stop offset="50%" style="stop-color:violet;stop-opacity:1"></stop>
+				<stop offset="100%" style="stop-color:indigo;stop-opacity:1"></stop>
+			</linearGradient>
+		</defs>
+		<circle stroke="url(#Gradient)" cx="12" cy="12" r="10" fill="none" stroke-width="2" stroke-linecap="round" transform="rotate(-90, 12, 12)"></circle>
+	</svg>
+	<svg class="icon" viewBox="0 0 24 24"><path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 15l6-6l6 6"></path></svg>
+</section>
+
+<script>
+	const btn = document.getElementById('vh-theme-toggle');
+	const root = document.documentElement;
+	const saved = localStorage.getItem('vh-theme');
+	const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+	root.dataset.theme = saved || (prefersDark ? 'dark' : 'light');
+	if (btn) {
+		btn.addEventListener('click', () => {
+			const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+			root.dataset.theme = next;
+			localStorage.setItem('vh-theme', next);
+		});
+	}
+</script>
