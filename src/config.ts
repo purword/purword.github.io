@@ -2,7 +2,7 @@ export default {
   // 网站标题
   Title: '君的博客',
   // 网站地址
-  Site: 'https://purword.github.io',
+  Site: 'https://purword.pages.dev/',
   // 网站副标题
   Subtitle: '请保持清醒',
   // 网站描述

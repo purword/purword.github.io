@@ -11,7 +11,7 @@ export default {
     },
     {
       "name": "君的博客",
-      "link": "https://purword.github.io",
+      "link": "https://purword.pages.dev/",
       "avatar": "https://q1.qlogo.cn/g?b=qq&nk=2268858875&s=640",
       "descr": "梅花香自苦寒来。"
     }
